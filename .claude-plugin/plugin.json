@@ -1,0 +1,12 @@
+{
+  "name": "the-massive",
+  "version": "0.1.0",
+  "description": "Find business leads with The Massive: run paid Google Ads business searches that return websites, emails, phone numbers and addresses as a CSV.",
+  "author": {
+    "name": "The Massive"
+  },
+  "homepage": "https://themassive.com.au",
+  "license": "MIT",
+  "privacyPolicyUrl": "https://themassive.com.au/privacy",
+  "keywords": ["leads", "lead generation", "business search", "google ads", "prospecting", "sales"]
+}
