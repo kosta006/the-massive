@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "the-massive": {
+      "type": "http",
+      "url": "https://themassive.com.au/mcp/search"
+    }
+  }
+}
