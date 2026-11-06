@@ -9,7 +9,7 @@ Find business leads without leaving Claude. The Massive runs a Google Ads busine
 | **The Massive connector** | Connects Claude to `https://themassive.com.au/mcp/search` (secure OAuth sign-in, no API keys). |
 | **/find-leads** | Guided search: checks you're signed in, collects your keyword, country, locations and email, shows a full summary, and only submits after you confirm. |
 | **/plan-locations** | Turns "all of South East Queensland" or "every capital city" into a clean list of up to 100 specific locations for you to approve. |
-| **/retry-payment** | Gets you a fresh Stripe payment link if the emailed one has expired. |
+| **/retry-payment** | Renews payment for a search whose emailed Stripe link has expired. |
 
 ## Setup
 
@@ -28,16 +28,18 @@ Just ask in plain language, or use the slash commands:
 
 ## How searches and payment work
 
-1. Claude shows you the keyword, country, every location and the email address, and waits for your **yes**.
-2. The search runs. When it finishes, a **Stripe payment link** is emailed to you.
-3. After payment, the **CSV download link** is emailed to the same address.
+1. Claude shows you the keyword, country, every location and the email address, and waits for your **yes**. Searches can't be cancelled once created.
+2. The search runs. When it finishes:
+   - **With a card saved** in Settings → Billing on themassive.com.au, your card is charged automatically and the **CSV download link** is emailed to you.
+   - **Without a saved card**, a **Stripe payment link** is emailed to you. After payment, the **CSV download link** is emailed to the same address.
+   - If an automatic charge fails, you'll get a Stripe payment link instead.
 
 Good to know:
 
-- **Searches are paid.** Nothing is charged until you pay through the Stripe link.
+- **Searches are paid** and charged only when the search completes.
 - **One keyword per search.** Each extra keyword is a separate search.
 - **Up to 100 locations per search**, all in one country.
-- **One unpaid search per email address.** Pay for the current search before starting another. Use `/retry-payment` with your request ID if the link has expired.
+- **One unpaid search per email address.** Pay for the current search before starting another. Use `/retry-payment` with your request ID if the payment link has expired. If you have a saved card, renewing charges it straight away.
 - Keep the **request ID** Claude gives you after submitting; it's also in your emails.
 
 ## Support
